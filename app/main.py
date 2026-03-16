@@ -16,8 +16,7 @@ class Distance:
             return other.km
         elif isinstance(other, (int, float)):
             return float(other)
-        else:
-            return NotImplemented
+        return NotImplemented
 
     def __add__(self, other: Any) -> Distance:
         km = self._get_km(other)
