@@ -33,13 +33,13 @@ class Distance:
 
     def __mul__(self, other: int | float) -> Distance:
         km = self._get_km(other, allow_distance=False)
-        if not isinstance(other, (int, float)):
+        if km is NotImplemented:
             return NotImplemented
         return Distance(self.km * km)
 
     def __truediv__(self, other: int | float) -> Distance:
         km = self._get_km(other, allow_distance=False)
-        if not isinstance(other, (int, float)):
+        if km is NotImplemented:
             return NotImplemented
         if km == 0:
             raise ZeroDivisionError("Cannot divide by zero")
